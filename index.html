@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <title>MR-Lang: Marathi Inspired Programming</title>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="https://bhashabytes.github.io/" class="site-logo" aria-label="BhashaBytes Home">
+    <img src="logo.png" alt="BhashaBytes Logo" />
+  </a>
+  <h1>MR-Lang: Marathi-Inspired Programming</h1>
+
+  <div class="intro-card">
+    <p>
+      Welcome to <strong>MR-Lang</strong> – a programming language designed for Marathi speakers!
+      MR-Lang makes coding more intuitive by using Marathi words and their transliterations as keywords,
+      instead of English-based Python syntax. It runs fully on Python via a translation layer.
+    </p>
+    <p>
+      Write code below, run it instantly, and explore MR-Lang’s features with live examples. Learning programming
+      has never been this friendly!
+    </p>
+  </div>
+
+  <div class="container">
+    <textarea id="mrCode" rows="10" placeholder="Type your Marathi code here...">दाखवा("Hello MR-Lang!")</textarea>
+    <br>
+    <button onclick="runCode()">Run Code</button>
+    <pre id="output">Output will appear here...</pre>
+  </div>
+
+  <h2>Documentation & Examples</h2>
+  <div class="docs">
+    <h3>Print (दाखवा / dakhava)</h3>
+    <pre>दाखवा("Hello World")</pre>
+
+    <h3>Functions (परिभाषक / paribhashakara)</h3>
+    <pre>परिभाषक बेरीज(a, b):
+    परतद्या a + b
+दाखवा("बेरीज =", बेरीज(5, 3))</pre>
+
+    <h3>Input (घ्या / ghya)</h3>
+    <pre>a = int(घ्या("संख्या १:"))
+b = int(घ्या("संख्या २:"))
+दाखवा("योग =", a + b)</pre>
+
+    <h3>Conditionals</h3>
+    <pre>i = 5
+जर i > 3:
+    दाखवा("i मोठा आहे")
+अन्यजर i == 3:
+    दाखवा("i सम आहे")
+अन्यथा:
+    दाखवा("i लहान आहे")</pre>
+
+    <h3>Loops</h3>
+    <pre>साठी x मध्ये [1,2,3]:
+    दाखवा("x =", x)
+i = 0
+जोपर्यंत i < 3:
+    दाखवा("i =", i)
+    i += 1</pre>
+
+    <h3>Loop Control</h3>
+    <pre>साठी x मध्ये [1,2,3]:
+    जर x == 2:
+        दाखवा("दुसरा प्राप्त")
+        थांबा
+    अन्यथा:
+        दाखवा(x)</pre>
+
+    <h3>Booleans & None</h3>
+    <pre>जर खरे:
+    दाखवा("true")
+अन्यजर खोटे:
+    दाखवा("false")
+दाखवा("काही नाही =", काहीनाही)</pre>
+
+    <h3>Exceptions</h3>
+    <pre>प्रयत्न करा:
+    1 / 0
+शिवाय ZeroDivisionError:
+    दाखवा("शून्याने भाग शक्य नाही")
+शेवटी:
+    दाखवा("हे नेहमी चालते")</pre>
+
+    <h3>Imports</h3>
+    <pre>आयात करा math म्हणुन m
+दाखवा(m.sqrt(4))</pre>
+
+    <p>Modify examples above and run your own MR-Lang code above!</p>
+  </div>
+
+  <h2>MR-Lang Keywords</h2>
+  <div class="reference-box">
+    <table>
+      <thead>
+        <tr>
+          <th>Python</th>
+          <th>Marathi Script</th>
+          <th>Transliteration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>print</td><td>दाखवा</td><td>dakhava</td></tr>
+        <tr><td>input</td><td>घ्या</td><td>ghya</td></tr>
+        <tr><td>if</td><td>जर</td><td>jar</td></tr>
+        <tr><td>elif</td><td>अन्यजर</td><td>anyajar</td></tr>
+        <tr><td>else</td><td>अन्यथा</td><td>anyatha</td></tr>
+        <tr><td>for</td><td>साठी</td><td>sathi</td></tr>
+        <tr><td>while</td><td>जोपर्यंत</td><td>joparyant</td></tr>
+        <tr><td>def</td><td>परिभाषक</td><td>paribhashakara</td></tr>
+        <tr><td>class</td><td>वर्ग</td><td>varg</td></tr>
+        <tr><td>return</td><td>परतद्या</td><td>paratdya</td></tr>
+        <tr><td>break</td><td>थांबा</td><td>thamba</td></tr>
+        <tr><td>continue</td><td>चालू ठेवा</td><td>chalutheva</td></tr>
+        <tr><td>import</td><td>आयात करा</td><td>aayatkara</td></tr>
+        <tr><td>from</td><td>पासून</td><td>pasun</td></tr>
+        <tr><td>as</td><td>म्हणून</td><td>mhanun</td></tr>
+        <tr><td>with</td><td>सोबत</td><td>sobat</td></tr>
+        <tr><td>try</td><td>प्रयत्न करा</td><td>prayatnakara</td></tr>
+        <tr><td>except</td><td>शिवाय</td><td>sivay</td></tr>
+        <tr><td>finally</td><td>शेवटी</td><td>shevti</td></tr>
+        <tr><td>True</td><td>खरे</td><td>khare</td></tr>
+        <tr><td>False</td><td>खोटे</td><td>khote</td></tr>
+        <tr><td>None</td><td>काहीनाही</td><td>kahinahi</td></tr>
+        <tr><td>or</td><td>किंवा</td><td>kinva</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let pyodideReady = false;
+    let pyodide;
+
+    async function loadPyodideAndPackages() {
+      pyodide = await loadPyodide();
+
+      pyodide.runPython(`
+import sys
+from js import document, prompt
+
+class OutputCatcher:
+    def write(self, s):
+        if s.strip():
+            document.getElementById("output").textContent += s + "\\n"
+    def flush(self): pass
+
+sys.stdout = OutputCatcher()
+sys.stderr = OutputCatcher()
+
+def input(msg=""):
+    resp = prompt(str(msg))
+    return "" if resp is None else str(resp)
+`);
+      pyodideReady = true;
+    }
+    loadPyodideAndPackages();
+
+    const mapping = {
+      "दाखवा": "print", "dakhava": "print",
+      "घ्या": "input", "ghya": "input",
+      "जर": "if", "jar": "if",
+      "अन्यजर": "elif", "anyajar": "elif",
+      "अन्यथा": "else", "anyatha": "else",
+      "साठी": "for", "sathi": "for",
+      "जोपर्यंत": "while", "joparyant": "while",
+      "परिभाषक": "def", "paribhashakara": "def",
+      "वर्ग": "class", "varg": "class",
+      "परतद्या": "return", "paratdya": "return",
+      "थांबा": "break", "thamba": "break",
+      "चालू ठेवा": "continue", "chalutheva": "continue",
+      "आयात करा": "import", "aayatkara": "import",
+      "पासून": "from", "pasun": "from",
+      "म्हणून": "as", "mhanun": "as",
+      "सोबत": "with", "sobat": "with",
+      "प्रयत्न करा": "try", "prayatnakara": "try",
+      "शिवाय": "except", "sivay": "except",
+      "शेवटी": "finally", "shevti": "finally",
+      "खरे": "True", "khare": "True",
+      "खोटे": "False", "khote": "False",
+      "काहीनाही": "None", "kahinahi": "None",
+      "किंवा": "or", "kinva": "or"
+    };
+
+    function escapeRegExp(str) {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function translate(code) {
+      for (let mr in mapping) {
+        const re = new RegExp(`(?<!\\w)${escapeRegExp(mr)}(?!\\w)`, 'gu');
+        code = code.replace(re, mapping[mr]);
+      }
+      return code;
+    }
+
+    async function runCode() {
+      if (!pyodideReady) {
+        alert("Pyodide is still loading...");
+        return;
+      }
+      document.getElementById("output").textContent = "";
+      const rawCode = document.getElementById("mrCode").value;
+      const pyCode = translate(rawCode);
+
+      try {
+        await pyodide.runPythonAsync(pyCode);
+      } catch (err) {
+        document.getElementById("output").textContent += "Error: " + err + "\n";
+      }
+    }
+  </script>
+</body>
+</html>
